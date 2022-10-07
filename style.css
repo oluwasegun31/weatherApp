@@ -74,14 +74,14 @@ body{
     border: none;
     outline: none;
     border-radius: 0px;
-    font-size: 16px;
+    font-size: 14px;
     height: 100%;
     text-align: center;
     transition: all 0.4s;
 }
 .submit-btn:hover{
     background: #fff;
-    color: #cc8502;
+    color: #cdf103;
 }
 
 .day-content{

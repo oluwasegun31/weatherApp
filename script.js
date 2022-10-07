@@ -11,7 +11,7 @@ const humidityOutput = document.querySelector(".humidity");
 const windSpeedOutput = document.querySelector(".wind-speed");
 const windDirOutput = document.querySelector(".wind-dir");
 const searchInput = document.querySelector(".search-field");
-const btn = document.querySelector(".submit");
+const btn = document.querySelector(".submit-btn");
 const form = document.querySelector(".formInput");
 const alertBox = document.querySelector(".alert");
 const alertTxt = document.querySelector(".alert-txt");
@@ -157,6 +157,10 @@ function fetchweatherData(){
 
         if(code === 100){ //// conditions for clear weather
             appBody.style.backgroundImage = `url(./img/${timeDay}/clear.jpg)`
+            btn.style.background = "#cc8502"
+            if(timeDay == "night"){
+                btn.style.background = "#f8b68a"
+            }
         }
         else if ( ////// conditions for cloudy weather
             code == 1003 ||
@@ -172,6 +176,10 @@ function fetchweatherData(){
             code == 1282 
         ){
             appBody.style.backgroundImage = `url(./img/${timeDay}/cloudy.jpg)`
+            btn.style.background = "#9e592b"
+            if(timeDay == "night"){
+                btn.style.background = "#6d4702"
+            }
         }
         else if( ////// conditions for rainy weather
             code == 1063 ||
@@ -194,9 +202,17 @@ function fetchweatherData(){
             code == 1252 
         ) {
             appBody.style.backgroundImage = `url(./img/${timeDay}/rainy.jpg)`
+            btn.style.background = "#f8b68a"
+            if(timeDay == "night"){
+                btn.style.background = "#cc8502"
+            }
         }
         else{ ///// for snow weather
             appBody.style.backgroundImage = `url(./img/${timeDay}/snowy.jpg)`
+            btn.style.background = "#f8b68a"
+            if(timeDay == "night"){
+                btn.style.background = "#cc8502"
+            }
         }
 
         //// forecast for day 2

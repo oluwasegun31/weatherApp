@@ -255,8 +255,26 @@ body{
     .day-content{
         flex-direction: column;
     }
+
+    .wrap{
+        margin: 0.5em;
+    }
+    .day{
+        font-size: 16px;
+    }
+    .f-txt, .ftemp, .submit-btn{
+        font-size: 14px;
+    }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 902px) {
+    .wrap{
+        margin: 0.2em;
+    }
+    .side-panel{
+        padding: 0.3em 0.2rem;
+    }
+}
+@media screen and (max-width: 730px) {
     .nav{
         width: 100%;
     }

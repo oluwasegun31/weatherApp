@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <section class="wrapper">
+        <div class="nav">
+            <div class="logo">The.Weather</div>
+            <div class="search">
+                <form class="formInput">
+                    <input type="text" class="search-field" placeholder="Enter Location">
+                    <button class="submit-btn" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="day-content">
+            <h1 class="temperature">26&#176;</h1>
+            <div class="location-time">
+                <span class="state">Abuja</span>,
+                <span class="country">Nigeria</span>
+                <div class="time-date">
+                    <span class="date">06 Oct, 2022</span>
+                    <span class="time">10:33</span>
+                </div>
+            </div>
+            <div class="weather">
+                <img src="./icons/day/113.png" alt="weather" class="weather-icon">
+                <p class="weather-txt">Sunny</p>
+            </div>
+        </div>
+    </section>
+    <section class="side-panel">
+        <div class="weather-details">
+            <h4>Today Weather Details</h4>
+            <div>
+                <span>Cloud</span>
+                <span class="cloud">80%</span>
+            </div>
+            <div>
+                <span>Humidity</span>
+                <span class="humidity">80%</span>
+            </div>
+            <div>
+                <span>Wind Speed</span>
+                <span class="wind-speed">5km/h</span>
+            </div>
+            <div>
+                <span>Wind Direction</span>
+                <span class="wind-dir">SW</span>
+            </div>
+        </div>
+        <div class="forecast">
+            <h4>Forecast for Remaining 6 days</h4>
+            <div>
+                <div class="wrap">
+                    <h3 class="day d2">Sunday</h3>
+                    <p class="fdate date2">6 oct</p>
+                    <img src="./icons/day/116.png" alt="weather" class="icon2">
+                    <div class="ftemp">
+                        <span class="min-temp2">76&#176;</span>~
+                        <span class="max-temp2">76&#176;</span>
+                    </div>
+                    <p class="f-txt ftxt2">Moderate rain</p>
+    
+                </div>
+                <div class="wrap">
+                    <h3 class="day d3">Sunday</h3>
+                    <p class="fdate date3">6 oct</p>
+                    <img src="./icons/day/116.png" alt="weather" class="icon3">
+                    <div class="ftemp">
+                        <span class="min-temp3">76&#176;</span>~
+                        <span class="max-temp3">76&#176;</span>
+                    </div>
+                    <p class="f-txt ftxt3">Moderate rain</p>
+    
+                </div>
+                <div class="wrap">
+                    <h3 class="day d4">Sunday</h3>
+                    <p class="fdate date4">6 oct</p>
+                    <img src="./icons/day/116.png" alt="weather" class="icon4">
+                    <div class="ftemp">
+                        <span class="min-temp4">76&#176;</span>~
+                        <span class="max-temp4">76&#176;</span>
+                    </div>
+                    <p class="f-txt ftxt4">Moderate rain</p>
+    
+                </div>
+                <div class="wrap">
+                    <h3 class="day d5">Sunday</h3>
+                    <p class="fdate date5">6 oct</p>
+                    <img src="./icons/day/116.png" alt="weather" class="icon5">
+                    <div class="ftemp">
+                        <span class="min-temp5">76&#176;</span>~
+                        <span class="max-temp5">76&#176;</span>
+                    </div>
+                    <p class="f-txt ftxt5">Moderate rain</p>
+    
+                </div>
+                <div class="wrap">
+                    <h3 class="day d6">Sunday</h3>
+                    <p class="fdate date6">6 oct</p>
+                    <img src="./icons/day/116.png" alt="weather" class="icon6">
+                    <div class="ftemp">
+                        <span class="min-temp6">76&#176;</span>~
+                        <span class="max-temp6">76&#176;</span>
+                    </div>
+                    <p class="f-txt ftxt6">Moderate rain</p>
+    
+                </div>
+                <div class="wrap">
+                    <h3 class="day d7">Sunday</h3>
+                    <p class="fdate date7">6 oct</p>
+                    <img src="./icons/day/116.png" alt="weather" class="icon7">
+                    <div class="ftemp">
+                        <span class="min-temp7">76&#176;</span>~
+                        <span class="max-temp7">76&#176;</span>
+                    </div>
+                    <p class="f-txt ftxt7">Moderate rain</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="alert hide">
+        <i class="fa-solid fa-triangle-exclamation error"></i>
+        <span class="alert-txt">Warning: City does not exist</span>
+        <span class="close">
+            <i class="fa-solid fa-x"></i>
+        </span>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -254,6 +254,7 @@ body{
     }
     .day-content{
         flex-direction: column;
+        text-align: center;
     }
 
     .wrap{

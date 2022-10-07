@@ -73,6 +73,10 @@ form.addEventListener('submit', function(e){
         setTimeout(() => {
             alertBox.classList.remove("show")
             alertBox.classList.add("hide")
+            setTimeout(() => {
+                alertBox.classList.remove("showalert")
+            }, 1000);
+            
         }, 4000);
     } else{
         ///let the city input be what is written on the form(search value)
@@ -111,7 +115,6 @@ function fetchweatherData(){
     //converting the data from a json object to a regular js object
     .then(response=> response.json())
     .then(data =>{
-        console.log(data)
 
         ///adding the temperature and weather text
         temp.innerHTML = `${data.current.temp_c}&#176;`;
@@ -305,6 +308,10 @@ function fetchweatherData(){
         setTimeout(() => {
             alertBox.classList.remove("show")
             alertBox.classList.add("hide")
+            setTimeout(() => {
+                alertBox.classList.remove("showalert")
+            }, 1000);
+            
         }, 4000);
         /// to make the body visible after error
         appBody.style.opacity = "1"

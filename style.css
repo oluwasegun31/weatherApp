@@ -201,7 +201,7 @@ body{
 }
 @keyframes shake {
     0%{
-        transform: translateX(100%);
+        transform: translateX(0);
     }
     40%{
         transform: translateX(-10%);
@@ -227,7 +227,7 @@ body{
         transform: translateX(-10%);
     }
     100%{
-        transform: translateX(200%);
+        transform: translateX(0);
     }
 }
 .alert .error{

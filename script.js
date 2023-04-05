@@ -31,33 +31,41 @@ const txtThree = document.querySelector(".ftxt3");
 const minTempThree = document.querySelector(".min-temp3");
 const maxTempThree = document.querySelector(".max-temp3");
 
-const dayFour = document.querySelector(".d4");
-const dateFour = document.querySelector(".date4");
-const iconFour = document.querySelector(".icon4");
-const txtFour = document.querySelector(".ftxt4");
-const minTempFour = document.querySelector(".min-temp4");
-const maxTempFour = document.querySelector(".max-temp4");
+// const dayFour = document.querySelector(".d4");
+// const dateFour = document.querySelector(".date4");
+// const iconFour = document.querySelector(".icon4");
+// const txtFour = document.querySelector(".ftxt4");
+// const minTempFour = document.querySelector(".min-temp4");
+// const maxTempFour = document.querySelector(".max-temp4");
 
-const dayFive = document.querySelector(".d5");
-const dateFive = document.querySelector(".date5");
-const iconFive = document.querySelector(".icon5");
-const txtFive = document.querySelector(".ftxt5");
-const minTempFive = document.querySelector(".min-temp5");
-const maxTempFive = document.querySelector(".max-temp5");
+// const dayFive = document.querySelector(".d5");
+// const dateFive = document.querySelector(".date5");
+// const iconFive = document.querySelector(".icon5");
+// const txtFive = document.querySelector(".ftxt5");
+// const minTempFive = document.querySelector(".min-temp5");
+// const maxTempFive = document.querySelector(".max-temp5");
 
-const daySix = document.querySelector(".d6");
-const dateSix = document.querySelector(".date6");
-const iconSix = document.querySelector(".icon6");
-const txtSix = document.querySelector(".ftxt6");
-const minTempSix = document.querySelector(".min-temp6");
-const maxTempSix = document.querySelector(".max-temp6");
+// const daySix = document.querySelector(".d6");
+// const dateSix = document.querySelector(".date6");
+// const iconSix = document.querySelector(".icon6");
+// const txtSix = document.querySelector(".ftxt6");
+// const minTempSix = document.querySelector(".min-temp6");
+// const maxTempSix = document.querySelector(".max-temp6");
 
-const daySeven = document.querySelector(".d7");
-const dateSeven = document.querySelector(".date7");
-const iconSeven = document.querySelector(".icon7");
-const txtSeven = document.querySelector(".ftxt7");
-const minTempSeven = document.querySelector(".min-temp7");
-const maxTempSeven = document.querySelector(".max-temp7");
+// const daySeven = document.querySelector(".d7");
+// const dateSeven = document.querySelector(".date7");
+// const iconSeven = document.querySelector(".icon7");
+// const txtSeven = document.querySelector(".ftxt7");
+// const minTempSeven = document.querySelector(".min-temp7");
+// const maxTempSeven = document.querySelector(".max-temp7");
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'd1b59f4a20msh70952168df7cef5p1d7d98jsn0846b37c0652',
+		'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+	}
+};
 
 ///setting the default search input 
 let cityInput = "Abuja";
@@ -110,12 +118,11 @@ function dayoftheWeek(day, month, year){
 //////Function that fetches and displays the data from the weather API
 function fetchweatherData(){
     /// fetching the data and adding the city dynamically
-    fetch(`https://api.weatherapi.com/v1/forecast.json?key=256e7351171047dd90a100909220610&q=${cityInput}&days=7&aqi=no&alerts=no`)
+    fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${cityInput}&days=7`, options)
 
     //converting the data from a json object to a regular js object
     .then(response=> response.json())
     .then(data =>{
-
         ///adding the temperature and weather text
         temp.innerHTML = `${data.current.temp_c}&#176;`;
         conditionTxt.innerHTML = `${data.current.condition.text}`;
@@ -244,63 +251,64 @@ function fetchweatherData(){
         minTempThree.innerHTML = `${data.forecast.forecastday[2].day.mintemp_c}&#176;`;
         maxTempThree.innerHTML = `${data.forecast.forecastday[2].day.maxtemp_c}&#176;`;
 
-        //// forecast for day 4
-        const forecastDateFour = data.forecast.forecastday[3].date
-        const d4 = parseInt(forecastDateFour.substr(8, 2));
-        const m4 = parseInt(forecastDateFour.substr(5, 2));
-        const y4 = parseInt(forecastDateFour.substr(0, 4));
-        dayFour.innerHTML = dayoftheWeek(m4, d4, y4);
-        dateFour.innerHTML = `${getZero(d4)}/${m4}`;
-        const iconId4 = data.forecast.forecastday[3].day.condition.icon.substr("//cdn.weatherapi.com/weather/64x64/".length);
-        iconFour.src = `./icons/${iconId4}`;
-        txtFour.innerHTML = data.forecast.forecastday[3].day.condition.text;
-        minTempFour.innerHTML = `${data.forecast.forecastday[3].day.mintemp_c}&#176;`;
-        maxTempFour.innerHTML = `${data.forecast.forecastday[3].day.maxtemp_c}&#176;`;
+        // //// forecast for day 4
+        // const forecastDateFour = data.forecast.forecastday[3].date
+        // const d4 = parseInt(forecastDateFour.substr(8, 2));
+        // const m4 = parseInt(forecastDateFour.substr(5, 2));
+        // const y4 = parseInt(forecastDateFour.substr(0, 4));
+        // dayFour.innerHTML = dayoftheWeek(m4, d4, y4);
+        // dateFour.innerHTML = `${getZero(d4)}/${m4}`;
+        // const iconId4 = data.forecast.forecastday[3].day.condition.icon.substr("//cdn.weatherapi.com/weather/64x64/".length);
+        // iconFour.src = `./icons/${iconId4}`;
+        // txtFour.innerHTML = data.forecast.forecastday[3].day.condition.text;
+        // minTempFour.innerHTML = `${data.forecast.forecastday[3].day.mintemp_c}&#176;`;
+        // maxTempFour.innerHTML = `${data.forecast.forecastday[3].day.maxtemp_c}&#176;`;
 
-        //// forecast for day 5
-        const forecastDateFive = data.forecast.forecastday[4].date
-        const d5 = parseInt(forecastDateFive.substr(8, 2));
-        const m5 = parseInt(forecastDateFive.substr(5, 2));
-        const y5 = parseInt(forecastDateFive.substr(0, 4));
-        dayFive.innerHTML = dayoftheWeek(m5, d5, y5);
-        dateFive.innerHTML = `${getZero(d5)}/${m5}`;
-        const iconId5 = data.forecast.forecastday[4].day.condition.icon.substr("//cdn.weatherapi.com/weather/64x64/".length);
-        iconFive.src = `./icons/${iconId5}`;
-        txtFive.innerHTML = data.forecast.forecastday[4].day.condition.text;
-        minTempFive.innerHTML = `${data.forecast.forecastday[4].day.mintemp_c}&#176;`
-        maxTempFive.innerHTML = `${data.forecast.forecastday[4].day.maxtemp_c}&#176;`
+        // //// forecast for day 5
+        // const forecastDateFive = data.forecast.forecastday[4].date
+        // const d5 = parseInt(forecastDateFive.substr(8, 2));
+        // const m5 = parseInt(forecastDateFive.substr(5, 2));
+        // const y5 = parseInt(forecastDateFive.substr(0, 4));
+        // dayFive.innerHTML = dayoftheWeek(m5, d5, y5);
+        // dateFive.innerHTML = `${getZero(d5)}/${m5}`;
+        // const iconId5 = data.forecast.forecastday[4].day.condition.icon.substr("//cdn.weatherapi.com/weather/64x64/".length);
+        // iconFive.src = `./icons/${iconId5}`;
+        // txtFive.innerHTML = data.forecast.forecastday[4].day.condition.text;
+        // minTempFive.innerHTML = `${data.forecast.forecastday[4].day.mintemp_c}&#176;`
+        // maxTempFive.innerHTML = `${data.forecast.forecastday[4].day.maxtemp_c}&#176;`
 
-        //// forecast for day 6
-        const forecastDateSix = data.forecast.forecastday[5].date
-        const d6 = parseInt(forecastDateSix.substr(8, 2));
-        const m6 = parseInt(forecastDateSix.substr(5, 2));
-        const y6 = parseInt(forecastDateSix.substr(0, 4));
-        daySix.innerHTML = dayoftheWeek(m6, d6, y6);
-        dateSix.innerHTML = `${getZero(d6)}/${m6}`;
-        const iconId6 = data.forecast.forecastday[5].day.condition.icon.substr("//cdn.weatherapi.com/weather/64x64/".length);
-        iconSix.src = `./icons/${iconId6}`;
-        txtSix.innerHTML = data.forecast.forecastday[5].day.condition.text;
-        minTempSix.innerHTML = `${data.forecast.forecastday[5].day.mintemp_c}&#176;`;
-        maxTempSix.innerHTML = `${data.forecast.forecastday[5].day.maxtemp_c}&#176;`;
+        // //// forecast for day 6
+        // const forecastDateSix = data.forecast.forecastday[5].date
+        // const d6 = parseInt(forecastDateSix.substr(8, 2));
+        // const m6 = parseInt(forecastDateSix.substr(5, 2));
+        // const y6 = parseInt(forecastDateSix.substr(0, 4));
+        // daySix.innerHTML = dayoftheWeek(m6, d6, y6);
+        // dateSix.innerHTML = `${getZero(d6)}/${m6}`;
+        // const iconId6 = data.forecast.forecastday[5].day.condition.icon.substr("//cdn.weatherapi.com/weather/64x64/".length);
+        // iconSix.src = `./icons/${iconId6}`;
+        // txtSix.innerHTML = data.forecast.forecastday[5].day.condition.text;
+        // minTempSix.innerHTML = `${data.forecast.forecastday[5].day.mintemp_c}&#176;`;
+        // maxTempSix.innerHTML = `${data.forecast.forecastday[5].day.maxtemp_c}&#176;`;
 
-        //// forecast for day 7
-        const forecastDateSeven = data.forecast.forecastday[6].date
-        const d7 = parseInt(forecastDateSeven.substr(8, 2));
-        const m7 = parseInt(forecastDateSeven.substr(5, 2));
-        const y7 = parseInt(forecastDateSeven.substr(0, 4));
-        daySeven.innerHTML = dayoftheWeek(m7, d7, y7);
-        dateSeven.innerHTML = `${getZero(d6)}/${m6}`;
-        const iconId7 = data.forecast.forecastday[6].day.condition.icon.substr("//cdn.weatherapi.com/weather/64x64/".length);
-        iconSeven.src = `./icons/${iconId7}`;
-        txtSeven.innerHTML = data.forecast.forecastday[6].day.condition.text;
-        minTempSeven.innerHTML = `${data.forecast.forecastday[6].day.mintemp_c}&#176;`;
-        maxTempSeven.innerHTML = `${data.forecast.forecastday[6].day.maxtemp_c}&#176;`;
+        // //// forecast for day 7
+        // const forecastDateSeven = data.forecast.forecastday[6].date
+        // const d7 = parseInt(forecastDateSeven.substr(8, 2));
+        // const m7 = parseInt(forecastDateSeven.substr(5, 2));
+        // const y7 = parseInt(forecastDateSeven.substr(0, 4));
+        // daySeven.innerHTML = dayoftheWeek(m7, d7, y7);
+        // dateSeven.innerHTML = `${getZero(d6)}/${m6}`;
+        // const iconId7 = data.forecast.forecastday[6].day.condition.icon.substr("//cdn.weatherapi.com/weather/64x64/".length);
+        // iconSeven.src = `./icons/${iconId7}`;
+        // txtSeven.innerHTML = data.forecast.forecastday[6].day.condition.text;
+        // minTempSeven.innerHTML = `${data.forecast.forecastday[6].day.mintemp_c}&#176;`;
+        // maxTempSeven.innerHTML = `${data.forecast.forecastday[6].day.maxtemp_c}&#176;`;
 
         /// to make the body visible after search
         appBody.style.opacity = "1"
     })
     /// to throw error if city dont exist
-    .catch(()=>{
+    .catch((err)=>{
+        console.log(err.message)
         alertBox.classList.add("show")
         alertBox.classList.add("showalert")
         alertBox.classList.remove("hide")
